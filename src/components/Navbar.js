@@ -1,7 +1,7 @@
 import React from 'react';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 
-const Navbar = ({ isDarkMode, toggleTheme }) => {
+const Navbar = ({ isDarkMode, toggleTheme, isGuest }) => {
   return (
     <nav className={`shadow-md ${isDarkMode ? 'bg-gradient-to-r from-gray-900 to-black' : 'bg-gradient-to-r from-white to-gray-200'}`}>
       <div className="max-w-7xl mx-auto px-4">
@@ -35,6 +35,9 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
               )}
             </div>
           </div>
+          {!isGuest && (
+            <a href="/" className={`px-3 py-2 rounded-md text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-teal-500' : 'text-gray-700 hover:text-teal-600'}`}>Logout</a>
+          )}
         </div>
       </div>
     </nav>
