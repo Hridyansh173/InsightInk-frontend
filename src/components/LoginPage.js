@@ -5,6 +5,7 @@ import { IoLogIn } from 'react-icons/io5'; // Import the login icon
 import { loginUser, guestLogin } from './api';
 import { useNavigate } from 'react-router-dom';
 import pen1 from './pen1.jpg'; // Import the new background image
+import { authenticateGuest } from './auth.js'; // Adjust the import based on your file structure
 
 const LoginPage = () => {
   const navigate = useNavigate();
