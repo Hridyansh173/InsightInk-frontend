@@ -16,28 +16,26 @@ const Navbar = ({ isDarkMode, toggleTheme, isGuest }) => {
               <a href="/contact" className={`px-3 py-2 rounded-md text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-teal-500' : 'text-gray-700 hover:text-teal-600'}`}>Contact</a>
             </div>
           </div>
-          
+
           {/* Right Content: Action Buttons and Dark Mode */}
-          <div className="flex items-center">
-            <div className="flex space-x-4">
-              <button className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-6 rounded">
-                Create Blog
-              </button>
-              <button className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-6 rounded">
-                Your Blogs
-              </button>
-            </div>
-            <div onClick={toggleTheme} className="ml-16 cursor-pointer">
+          <div className="flex items-center space-x-4">
+            <button className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-6 rounded">
+              Create Blog
+            </button>
+            <button className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-6 rounded">
+              Your Blogs
+            </button>
+            <div onClick={toggleTheme} className="cursor-pointer">
               {isDarkMode ? (
                 <MdLightMode className="text-gray-300 text-2xl hover:text-teal-500" />
               ) : (
                 <MdDarkMode className="text-gray-700 text-2xl hover:text-teal-600" />
               )}
             </div>
+            {!isGuest && (
+              <a href="/" className={`px-3 py-2 rounded-md text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-teal-500' : 'text-gray-700 hover:text-teal-600'}`}>Logout</a>
+            )}
           </div>
-          {!isGuest && (
-            <a href="/" className={`px-3 py-2 rounded-md text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-teal-500' : 'text-gray-700 hover:text-teal-600'}`}>Logout</a>
-          )}
         </div>
       </div>
     </nav>
