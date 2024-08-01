@@ -1,8 +1,9 @@
 import React from 'react';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import logo from './logo1.png'; // Import the new image with transparent background
-
-const Navbar = ({ isDarkMode, toggleTheme, isGuest }) => {
+import { Link } from 'react-router-dom';  
+import { isGuest } from './auth';
+const Navbar = ({ isDarkMode, toggleTheme }) => {
   return (
     <nav className={`shadow-md ${isDarkMode ? 'bg-gradient-to-r from-gray-800 to-gray-900' : 'bg-gradient-to-r from-gray-200 to-gray-300'}`}>
       <div className="max-w-7xl mx-auto px-4">
@@ -37,9 +38,11 @@ const Navbar = ({ isDarkMode, toggleTheme, isGuest }) => {
                 <MdDarkMode className="text-gray-700 text-2xl hover:text-black" />
               )}
             </div>
-            {!isGuest && (
-              <a href="/" className={`px-3 py-2 rounded-md text-sm font-medium ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'}`}>Logout</a>
-            )}
+            {isGuest() ? (  
+        <Link to="/">Login or Sign Up</Link>  
+      ) : (  
+        <Link to="/">Logout</Link>  
+      )}  
           </div>
         </div>
       </div>
